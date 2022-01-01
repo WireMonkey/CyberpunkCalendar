@@ -1,0 +1,9 @@
+<div class="grid calendar">
+    <div class="col-2-5" *ngFor="let day of days">
+        <app-day [day]="day" [disable]="checkDateOutsideRange(day)"></app-day>
+    </div>
+</div>
+<div >
+    <p-button icon="pi pi-arrow-left" class="p-button-rounded" style="float: left;" [hidden]="!showPrevious" (click)="previous()"></p-button>
+    <p-button icon="pi pi-arrow-right" class="p-button-rounded" style="float: right;" [hidden]="!showNext" (click)="next()"></p-button>
+</div>

@@ -1,0 +1,86 @@
+{
+    "firstDay": "07/31/2045",
+    "lastDay": "08/31/2045",
+    "currentDay": "8/01/2045",
+    "events": [
+        {
+            "day": "07/31/2045",
+            "shortNote": "",
+            "note": "",
+            "isPdf": true,
+            "fileName": "20450731"
+        }        
+    ],
+    "forcast": [
+        {
+            "day": "8/1/2045",
+            "temp": "Warm",
+            "weather": "Clear"
+        },
+        {
+            "day": "8/2/2045",
+            "temp": "Warm",
+            "weather": "Clear"
+        },
+        {
+            "day": "8/3/2045",
+            "temp": "Hot",
+            "weather": "Dust Storm"
+        },
+        {
+            "day": "8/4/2045",
+            "temp": "Hot",
+            "weather": "Clear"
+        },
+        {
+            "day": "8/5/2045",
+            "temp": "Hot",
+            "weather": "Light Rain"
+        },
+        {
+            "day": "8/6/2045",
+            "temp": "Hot",
+            "weather": "Flooding"
+        },
+        {
+            "day": "8/7/2045",
+            "temp": "Warm",
+            "weather": "Flooding"
+        },
+        {
+            "day": "8/8/2045",
+            "temp": "Warm",
+            "weather": "Flooding"
+        },
+        {
+            "day": "8/9/2045",
+            "temp": "Hot",
+            "weather": "Light Rain"
+        },
+        {
+            "day": "8/10/2045",
+            "temp": "Warm",
+            "weather": "Light Rain"
+        },
+        {
+            "day": "8/11/2045",
+            "temp": "Warm",
+            "weather": "Overcast"
+        },
+        {
+            "day": "8/12/2045",
+            "temp": "Warm",
+            "weather": "Overcast"
+        },
+        {
+            "day": "8/13/2045",
+            "temp": "Warm",
+            "weather": "Radioactive Windstorm"
+        },
+        {
+            "day": "8/14/2045",
+            "temp": "Warm",
+            "weather": "Overcast"
+        }
+    ]
+}

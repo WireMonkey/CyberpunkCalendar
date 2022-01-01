@@ -1,0 +1,22 @@
+<p-card [ngClass]="{'disableDay': disable, 'currentDay': isCurrentDay === 0, 'pastDay': isCurrentDay === -1 && !disable}">
+    <ng-template pTemplate="header">
+        <div class="header">
+            {{day | dfnsFormat: 'EEE LLL d yyyy'}} - 
+            <label *ngIf="rentDue && !disable" class="rentHeader">
+                Rent Due!
+            </label>
+        </div>
+    </ng-template>
+    <label>
+        {{weather}}
+    </label>
+    <div *ngIf="!disable" (click)="openDayDialog()">
+        <ul>
+            <li *ngFor="let event of events | slice:0:3">
+                {{event.isPdf ? "Scream Sheet" : event.shortNote}}
+            </li>
+            <li *ngIf="events.length > 3">...</li>
+        </ul>
+    </div>
+</p-card>
+

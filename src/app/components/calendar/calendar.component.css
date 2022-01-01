@@ -1,0 +1,19 @@
+.calendar {
+  display: flex;
+}
+
+.col-2-5 {
+    flex: 0 0 auto;
+    padding: 0.5rem;
+    width: 14.2857%;
+    height: auto;
+  }
+
+  @media screen and (max-width: 992px) {
+    .col-2-5 {
+      flex: 0 0 auto;
+      padding: 0.5rem;
+      width: 100%;
+      height: auto;
+    }
+  }

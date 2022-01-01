@@ -1,0 +1,9 @@
+    <label>
+        {{weather}}
+    </label>
+    <ul style="max-height: 90%; display: block; overflow: auto;">
+        <li *ngFor="let event of events">
+            <div *ngIf="event.note || event.shortNote">{{event.note ? event.note : event.shortNote}}</div>
+            <button pButton type="button" class="p-button-sm p-button-text p-button-warning" *ngIf="event.isPdf" (click)="openScreemSheetDialog(event.fileName)">View Screem Sheet.</button>
+        </li>
+    </ul>

@@ -1,1 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+    background-color: black;
+  }
+
+.disableDay .p-card {
+  background-color: rgb(15, 15, 15) !important;
+}
+
+.pastDay .p-card {
+  background-color: #1f2427 !important;
+}
+
+.currentDay .p-card {
+  background-color: #554100 !important;
+}
+
+.disableDay .p-card-header {
+  color: lightgray;
+}
+
+.rentHeader {
+  color: red;
+}
+
+.pdfViewerContainer {
+  height: 93.5% !important;
+  width: 99% !important;
+}
+
+.screamDialog {
+  max-width: 90% !important;
+  height: 90% !important;
+  min-width: 35% !important;
+}
+
+a .p-button {
+  background-color: transparent;
+  color: #FFD54F;
+  border-color: transparent;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+
+.screamButton {
+  display: block !important;
+  margin: .25rem !important;
+}
+
