@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from 'src/app/service/event.service';
-import { endOfMonth, startOfMonth, isBefore, isEqual,addDays, startOfWeek, endOfWeek, isAfter, addMonths } from 'date-fns';
+import { endOfMonth, startOfMonth, isBefore, isEqual,addDays, startOfWeek, endOfWeek, isAfter, addMonths, eachDayOfInterval, isWithinInterval } from 'date-fns';
 
 @Component({
   selector: 'app-calendar',
@@ -41,12 +41,9 @@ export class CalendarComponent implements OnInit {
   }
 
   getDaysArray(): void {
-    this.days = [];
-    let day = new Date(this.currentFirstDay);
-    while(isBefore(day,this.currentLastDay) || isEqual(day,this.currentLastDay)){
-      this.days.push(new Date(day));
-      day = addDays(day,1);
-    }
+    this.days = eachDayOfInterval(
+      { start: new Date(this.currentFirstDay), end: new Date(this.currentLastDay) }
+    );
   }
 
   checkShowNext(): void {
@@ -58,7 +55,10 @@ export class CalendarComponent implements OnInit {
   }
 
   checkDateOutsideRange(date: Date): boolean {
-    return isBefore(date,this.firstDay) || isAfter(date,this.lastDay);
+    return !isWithinInterval(date, {
+      start: new Date(this.firstDay),
+      end: new Date(this.lastDay)
+    });
   }
 
   next(): void {

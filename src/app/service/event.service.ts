@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { isBefore, isAfter, isLastDayOfMonth, differenceInDays, isSameDay } from 'date-fns';
+import { isLastDayOfMonth, differenceInDays, isSameDay, compareDesc } from 'date-fns';
 import { Observable, of } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { Events, Event } from '../interface/events';
@@ -41,11 +41,17 @@ export class EventService {
 
   getDayEvents(day: Date): Event[] {
     if(this.events && this.events.events) {
-      const dayEvents = this.events.events.filter(e => isSameDay(day,e.day)).sort((a: Event,b: Event) => {
+      let dayEvents = this.events.events.filter(e => {
+       const x = isSameDay(day,e.day);
+       return x;
+      });
+
+      dayEvents.sort((a: Event,b: Event) => {
         return a.isPdf && b.isPdf ? 0 : 
           a.isPdf ? -1 : 
           b.isPdf ? 1 : 0;
       });
+      
       return dayEvents;
     } 
     return [];
@@ -57,15 +63,7 @@ export class EventService {
 
   checkCurrentDay(date: Date): number {
     if(this.events){
-      if(isBefore(date, this.events.currentDay)){
-        return -1;
-      }
-
-      if(isAfter(date, this.events.currentDay)){
-        return 1;
-      }
-
-      return 0;
+      return compareDesc(date,this.events.currentDay);
     }
     return -1;
   }
