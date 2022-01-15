@@ -44,7 +44,8 @@ export class DayComponent implements OnInit {
           events: this.events,
           weather: this.weather
         },
-        header: format(this.day, 'EEE LLL d yyyy')
+        header: format(this.day, 'EEE LLL d yyyy'),
+        styleClass: "dayDialog"
       });
     }
   }

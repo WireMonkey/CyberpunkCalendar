@@ -47,3 +47,16 @@ a .p-button {
   margin: .25rem !important;
 }
 
+@media screen and (max-width: 992px) {
+  .screamDialog {
+    width: 100% !important;
+    min-width: 100% !important;
+    height: 100% !important;
+  }
+  
+  .dayDialog {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+

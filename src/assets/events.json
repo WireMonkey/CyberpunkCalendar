@@ -9,6 +9,13 @@
             "note": "",
             "isPdf": true,
             "fileName": "First sheet"
+        },
+        {
+            "day": "07/31/2045",
+            "shortNote": "Body Loto #'s",
+            "note": "Body Loto - 11, 8, 17, 9, 7, 14",
+            "isPdf": false,
+            "fileName": null
         }        
     ],
     "forcast": [
