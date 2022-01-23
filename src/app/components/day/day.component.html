@@ -21,7 +21,7 @@
             <li *ngFor="let event of events | slice:0:3">
                 {{event.isPdf ? "Scream Sheet" : event.shortNote}}
             </li>
-            <li *ngIf="events.length > 3">...</li>
+            <li *ngIf="events.length > 3">Click for more.</li>
         </ul>
     </div>
 </p-card>

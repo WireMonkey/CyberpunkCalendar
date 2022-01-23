@@ -8,8 +8,8 @@ export interface Events {
 
 export interface Event {
     day: Date;
-    shortNote: string;// Max 50 char.
-    note?: string;
+    shortNote?: string;// Max 50 char.
+    note: string;
     isPdf?: boolean;
     fileName?: string;
 }

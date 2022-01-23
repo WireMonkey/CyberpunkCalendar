@@ -24,6 +24,9 @@ export class EventService {
           if(value.events){
             value.events.forEach(e => {
               e.day = new Date(e.day);
+              e.shortNote = e.shortNote ? e.shortNote : 
+                e.note ? e.note.length <= 25 ? e.note :
+                e.note.substring(0,25) : "";
             });
           }
           if(value.forcast){

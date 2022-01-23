@@ -12,11 +12,11 @@
         },
         {
             "day": "08-01-2045",
-            "shortNote": "Body Loto - 11, 8, 17, 9, 7, 14",
-            "note": "",
+            "shortNote": null,
+            "note": "Body Loto - 11, 8, 17, 9, 7, 14",
             "isPdf": false,
             "fileName": null
-        }        
+        }      
     ],
     "forcast": [
         {
