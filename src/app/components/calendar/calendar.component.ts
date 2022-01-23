@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from 'src/app/service/event.service';
 import { endOfMonth, startOfMonth, isBefore, isEqual,addDays, startOfWeek, endOfWeek, isAfter, addMonths, eachDayOfInterval, isWithinInterval } from 'date-fns';
+import { Events } from 'src/app/interface/events';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-calendar',
@@ -24,13 +26,17 @@ export class CalendarComponent implements OnInit {
 
   ngOnInit(): void {
     this.eventService.getEvents().subscribe(value => {
-      this.firstDay = value.firstDay;
-      this.lastDay = value.lastDay;
-      this.month = isBefore(value.firstDay,value.currentDay) ? startOfMonth(value.currentDay) : startOfMonth(value.currentDay);
+      this.setData(value);
+    });
+  }
+
+  setData(events: Events){
+    this.firstDay = events.firstDay;
+      this.lastDay = events.lastDay;
+      this.month = isBefore(events.firstDay,events.currentDay) ? startOfMonth(events.currentDay) : startOfMonth(events.currentDay);
       this.currentFirstDay = startOfWeek(this.month);
       this.currentLastDay = endOfWeek(endOfMonth(this.month));
       this.setUi();
-    });
   }
 
   setUi(): void {
@@ -75,9 +81,16 @@ export class CalendarComponent implements OnInit {
     this.setUi();
   }
 
+  refresh(): void {
+    this.eventService.refresh().subscribe(value => {
+      this.setData(value);
+    });
+  }
+
   setScrollPosition(): void {
     if(window.scrollX || window.scrollY){
       window.scrollTo({top: 0, behavior: 'smooth'});
     }
   }
+
 }

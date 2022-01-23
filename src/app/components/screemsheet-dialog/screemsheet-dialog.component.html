@@ -1,3 +1,3 @@
-<p-progressSpinner *ngIf="loadingFile"></p-progressSpinner>
+<p-progressSpinner *ngIf="loadingFile" class="center"></p-progressSpinner>
 <simple-pdf-viewer [hidden]="loadingFile" #pdfViewer ></simple-pdf-viewer>
 <a class="p-button screamButton" [hidden]="loadingFile && !fileUrl" [href]="fileUrl" target="_blank">Download</a> 

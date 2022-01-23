@@ -39,6 +39,11 @@ export class EventService {
     return of(this.events);
   }
 
+  refresh(): Observable<Events> {
+    this.events = undefined;
+    return this.getEvents();
+  }
+
   getDayEvents(day: Date): Event[] {
     if(this.events && this.events.events) {
       let dayEvents = this.events.events.filter(e => {
@@ -75,7 +80,7 @@ export class EventService {
   getWeatherString(date: Date): string {
     if(this.events && differenceInDays(date, this.events.currentDay) < 14){
       const weather = this.events.forcast.find(f => isSameDay(date,f.day));
-      return `${this.checkCurrentDay(date) >= 0 ? "Forecast is" : "Weather was"} ${weather && weather.temp ? weather.temp : "Warm"} and ${weather && weather.weather ? weather.weather : "Sunny"}.` 
+      return `${this.checkCurrentDay(date) <= 0 ? "Forecast is" : "Weather was"} ${weather && weather.temp ? weather.temp : "Warm"} and ${weather && weather.weather ? weather.weather : "Sunny"}.` 
     }
     return "";
   }

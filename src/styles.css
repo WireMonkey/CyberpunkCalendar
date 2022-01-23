@@ -47,6 +47,21 @@ a .p-button {
   margin: .25rem !important;
 }
 
+.left {
+  display: flex;
+  justify-content: left;
+}
+
+.right {
+  display: flex;
+  justify-content: right;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
 @media screen and (max-width: 992px) {
   .screamDialog {
     width: 100% !important;

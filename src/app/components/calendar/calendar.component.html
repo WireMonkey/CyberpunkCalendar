@@ -3,7 +3,18 @@
         <app-day [day]="day" [disable]="checkDateOutsideRange(day)"></app-day>
     </div>
 </div>
-<div >
-    <p-button icon="pi pi-arrow-left" class="p-button-rounded" style="float: left;" [hidden]="!showPrevious" (click)="previous()"></p-button>
-    <p-button icon="pi pi-arrow-right" class="p-button-rounded" style="float: right;" [hidden]="!showNext" (click)="next()"></p-button>
+<div class="grid">
+    <div class="col">
+        <div [hidden]="!showPrevious">
+            <p-button icon="pi pi-arrow-left" class="p-button-rounded left" (click)="previous()"></p-button>
+        </div>
+    </div>
+    <div class="col">
+        <p-button icon="pi pi-refresh" class="p-button-rounded center" (click)="refresh()"></p-button>
+    </div>
+    <div class="col">
+        <div [hidden]="!showNext">
+            <p-button icon="pi pi-arrow-right" class="p-button-rounded right" (click)="next()"></p-button>
+        </div>
+    </div>
 </div>

@@ -17,6 +17,7 @@ import { SimplePdfViewerModule } from 'simple-pdf-viewer';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { TooltipModule } from 'primeng/tooltip';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { MessageService } from 'primeng/api';
     ButtonModule,
     SimplePdfViewerModule,
     ProgressSpinnerModule,
-    ToastModule
+    ToastModule,
+    TooltipModule
   ],
   providers: [DialogService, MessageService],
   bootstrap: [AppComponent]
