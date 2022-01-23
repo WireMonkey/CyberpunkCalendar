@@ -3,6 +3,9 @@
         <app-day [day]="day" [disable]="checkDateOutsideRange(day)"></app-day>
     </div>
 </div>
+<div *ngIf="isLoading">
+    <p-progressSpinner *ngIf="isLoading" class="center"></p-progressSpinner>
+</div>
 <div class="grid">
     <div class="col">
         <div [hidden]="!showPrevious">

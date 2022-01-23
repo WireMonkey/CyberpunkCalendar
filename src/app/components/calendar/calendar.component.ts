@@ -3,6 +3,7 @@ import { EventService } from 'src/app/service/event.service';
 import { endOfMonth, startOfMonth, isBefore, isEqual,addDays, startOfWeek, endOfWeek, isAfter, addMonths, eachDayOfInterval, isWithinInterval } from 'date-fns';
 import { Events } from 'src/app/interface/events';
 import { interval } from 'rxjs';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-calendar',
@@ -20,13 +21,17 @@ export class CalendarComponent implements OnInit {
 
   showPrevious: boolean = false;
   showNext: boolean = false;
-
-
-  constructor(private readonly eventService: EventService) { }
+  isLoading: boolean = true;
+  
+  constructor(private readonly eventService: EventService, private readonly messageService: MessageService, ) { }
 
   ngOnInit(): void {
     this.eventService.getEvents().subscribe(value => {
       this.setData(value);
+      this.isLoading = false;
+    }, () => {
+      this.messageService.add({severity:'error', summary:'Error', detail:`Unable to load calendar data.`});
+      this.isLoading = false;
     });
   }
 
@@ -82,8 +87,14 @@ export class CalendarComponent implements OnInit {
   }
 
   refresh(): void {
+    this.days = [];
+    this.isLoading = true;
     this.eventService.refresh().subscribe(value => {
       this.setData(value);
+      this.isLoading = false;
+    }, () => {
+      this.messageService.add({severity:'error', summary:'Error', detail:`Unable to load calendar data.`});
+      this.isLoading = false;
     });
   }
 
